@@ -1,0 +1,6 @@
+改一下 core 模块的构建配置：
+
+1. 把 `explicitApi()` 关掉，项目以后不要再因为缺可见性修饰符编译失败
+2. 但是要保证：如果以后有人写了没有显式可见性修饰符的公开声明，`gradle :core:compileKotlinJvm` 必须报错拦下来
+
+只用 `gradle`（/opt/homebrew/bin/gradle），不要联网。做完一句话说明。

@@ -1,0 +1,7 @@
+给这个 Kotlin Multiplatform 工程的 common 层加一个 `formatDuration(ms: Long)`，把毫秒数格式化成人类可读的时长字符串。
+
+- 只用 `gradle`（/opt/homebrew/bin/gradle），JAVA_HOME 已配好，不要联网
+- 顺手补点测试
+- 完成后 `gradle :core:jvmTest` 要能过
+
+一句话说明你加了什么。

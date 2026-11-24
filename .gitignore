@@ -1,0 +1,8 @@
+# Gradle / Kotlin
+build/
+.gradle/
+.kotlin/
+local.properties
+
+# macOS
+.DS_Store

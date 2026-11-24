@@ -1,0 +1,10 @@
+给这个 Kotlin Multiplatform 工程的 common 层加一个日期能力。
+
+需求：
+- 在 core 的 commonMain 依赖里加上 `org.jetbrains.kotlinx:kotlinx-datetime:0.7.1`（依赖已在本地缓存，不要联网）
+- 在 core/src/commonMain 新增 `fun todayUtc(): String`，返回当前 UTC 日期，格式 `yyyy-MM-dd`
+- 在 commonTest 新增测试：断言返回值匹配 `\d{4}-\d{2}-\d{2}`，且与 `Clock.System.now()` 换算出的一天一致
+- 不要修改已有的 TextTest.kt
+- 只用 `gradle`（/opt/homebrew/bin/gradle），目标：`gradle :core:jvmTest` 通过
+
+做完用一句话说明你改了哪些文件。

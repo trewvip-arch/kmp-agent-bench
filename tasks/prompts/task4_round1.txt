@@ -1,0 +1,11 @@
+这个 Kotlin Multiplatform 工程的 common 层缺少一个平台标识能力。
+
+需求：
+- 在 commonMain 声明 `expect fun platformName(): String`
+- 在 jvm 侧实现，返回 `"jvm"`
+- 在 iOS 侧实现（iosSimulatorArm64 这个 target），返回 `"ios"`，注意不要引入任何第三方依赖
+- core/src/commonTest/kotlin/bench/PlatformTest.kt 是验收测试，一个字都不许改
+- 只用 `gradle`（/opt/homebrew/bin/gradle），JAVA_HOME 已配好，不要联网
+- 最终必须同时满足：`gradle :core:jvmTest` 通过，且 `gradle :core:compileKotlinIosSimulatorArm64` 通过
+
+做完用一句话说明你改了哪些文件。

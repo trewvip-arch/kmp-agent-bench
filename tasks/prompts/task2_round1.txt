@@ -1,0 +1,15 @@
+在这个 Kotlin Multiplatform 工程的 common 层新增一个函数，并补测试。
+
+需求：`fun formatDuration(ms: Long): String`，放在 core/src/commonMain 里，规则如下
+- 小于 1000 毫秒：输出 `850ms`（不带小数）
+- 小于 60 秒：输出 `12.3s`，保留一位小数
+- 60 秒及以上：输出 `1m05s` 这种分+秒格式，秒数补两位，不足一分钟的部分忽略毫秒
+- 负数按 0 处理
+
+要求：
+- 只用 `gradle`（/opt/homebrew/bin/gradle），JAVA_HOME 已配好，不要联网下载依赖
+- 不要修改 core/src/commonTest 下已有的 TextTest.kt，新测试请另建文件
+- 至少覆盖上面四条规则各一个用例
+- 目标：`gradle :core:jvmTest` 通过
+
+做完用一句话说明你新增了哪些文件。

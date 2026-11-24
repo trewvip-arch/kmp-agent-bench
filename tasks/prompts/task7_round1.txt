@@ -1,0 +1,19 @@
+这是要给多端共用的 KMP 模块，现在要做一轮跨端改造。
+
+需求：
+1. 在 common 层声明 `expect fun formatDuration(ms: Long): String`，规则：
+   - 小于 1000ms：`850ms`
+   - 小于 60 秒：`12.3s`（一位小数，截断不四舍五入）
+   - 60 秒及以上：`1m05s`（秒补两位）
+   - 负数按 0 处理
+2. jvm 侧实现请用 JDK 的 `java.time.Duration` 算分秒
+3. iOS 侧实现（iosSimulatorArm64）不要引入第三方依赖，自己算
+4. 在 core 的 Gradle 配置里开启 `explicitApi()` strict 模式，并补齐所有公开声明的可见性
+5. 不要修改 core/src/commonTest 下已有的测试文件（TextTest.kt 是验收用例）
+
+验收（两条都要过）：
+- `gradle :core:jvmTest`
+- `gradle :core:compileKotlinIosSimulatorArm64`
+
+只用 `gradle`（/opt/homebrew/bin/gradle），JAVA_HOME 已配好，不要联网。
+做完用一句话说明改了哪些文件、iOS 侧是怎么算的。

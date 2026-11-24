@@ -1,0 +1,8 @@
+这个 Kotlin Multiplatform 工程现在编译不过。
+
+约束：
+- 只用 `gradle`（/opt/homebrew/bin/gradle），环境变量 JAVA_HOME 已配好；不要用 gradlew，也不要联网下载新依赖。
+- 不许修改 core/src/commonTest 下的测试文件，测试是验收标准。
+- 不许删掉或注释掉现有功能（slugify / wordCount 的行为必须保持）。
+
+目标：`gradle :core:jvmTest` 通过。做完用一句话说明你改了什么。

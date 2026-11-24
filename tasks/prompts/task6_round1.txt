@@ -1,0 +1,10 @@
+这是要当库发布出去的 KMP 模块，现在没有任何 API 可见性约束。
+
+需求：
+- 在 core 的 Gradle 配置里开启 `explicitApi()`，用 strict 模式（缺可见性修饰符就直接编译失败，不要 warning 模式）
+- 把 core 里所有公开声明补齐显式可见性修饰符，让项目在这套约束下能编译、测试能跑
+- 不要修改 core/src/commonTest 下的测试文件
+- 只用 `gradle`（/opt/homebrew/bin/gradle），不要联网
+- 目标：`gradle :core:jvmTest` 通过，并且 `gradle :core:compileKotlinJvm` 在 strict 模式下不报可见性错误
+
+做完用一句话说明你改了哪些地方。
